@@ -1,0 +1,20 @@
+<div class="random-card">
+  <h4>Random (max = {{ max }})</h4>
+
+  <div class="value" *ngIf="current !== null"
+       [class.low]="isLow"
+       [class.high]="!isLow">
+    Wylosowano: <strong>{{ current }}</strong>
+  </div>
+
+  <div class="value" *ngIf="current === null">
+    Brak wartości (naciśnij Generuj)
+  </div>
+
+  <p *ngIf="current !== null" class="comment">
+    <span *ngIf="isLow">Liczba jest ≤ 0.5 * max — OK</span>
+    <span *ngIf="!isLow">Liczba jest > 0.5 * max — większa</span>
+  </p>
+
+  <button (click)="generate()">Generuj</button>
+</div>
