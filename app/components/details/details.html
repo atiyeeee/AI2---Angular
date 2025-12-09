@@ -1,0 +1,24 @@
+<div class="container mt-4" *ngIf="person; else notFound">
+  <div class="card shadow-sm border-0">
+    <div class="card-header bg-pink text-white" style="background-color:#ff69b4;">
+      <h2>Szczegóły osoby</h2>
+    </div>
+    <div class="card-body">
+      <p><strong>Imię:</strong> {{person.firstName}}</p>
+      <p><strong>Nazwisko:</strong> {{person.familyName}}</p>
+      <p><strong>Wiek:</strong> {{person.age}}</p>
+
+      <h4>Adres</h4>
+      <p><strong>Miasto:</strong> {{person.address?.city}}</p>
+      <p><strong>Ulica:</strong> {{person.address?.street}}</p>
+      <p><strong>Kod pocztowy:</strong> {{person.address?.postCode}}</p>
+
+      <button (click)="goBack()" class="btn btn-pink text-white mt-3" style="background-color:#ff69b4;">Powrót</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #notFound>
+  <div class="alert alert-danger mt-4">Nie odnaleziono osoby o podanym identyfikatorze.</div>
+  <button routerLink="/" class="btn btn-pink text-white" style="background-color:#ff69b4;">Powrót do listy</button>
+</ng-template>

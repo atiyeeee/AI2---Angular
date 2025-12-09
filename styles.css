@@ -1,0 +1,30 @@
+body {
+  background: #ffe6f0; 
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+header {
+  background: #ff69b4;
+  color: white;
+}
+
+nav a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+button {
+  margin-left: 5px;
+}
+
+ul li {
+  background: #fff0f6; 
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}

@@ -1,0 +1,44 @@
+<div class="container mt-4">
+  <div class="card shadow-sm border-0">
+    <div class="card-header bg-pink text-white text-center" style="background-color:#ff69b4;">
+      <h2>Dodaj nową osobę</h2>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="save()">
+        <div class="mb-3">
+          <label class="form-label">Imię</label>
+          <input type="text" class="form-control" [(ngModel)]="person.firstName" name="firstName" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Nazwisko</label>
+          <input type="text" class="form-control" [(ngModel)]="person.familyName" name="familyName" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Wiek</label>
+          <input type="number" class="form-control" [(ngModel)]="person.age" name="age">
+        </div>
+
+        <fieldset class="border p-3 rounded mb-3">
+          <legend class="float-none w-auto px-2">Adres</legend>
+          <div class="mb-3">
+            <label class="form-label">Miasto</label>
+            <input type="text" class="form-control" [(ngModel)]="person.address.city" name="city">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Ulica</label>
+            <input type="text" class="form-control" [(ngModel)]="person.address.street" name="street">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Kod pocztowy</label>
+            <input type="text" class="form-control" [(ngModel)]="person.address.postCode" name="postCode">
+          </div>
+        </fieldset>
+
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-pink text-white" style="background-color:#ff69b4;">Zapisz</button>
+          <button type="button" routerLink="/" class="btn btn-secondary">Anuluj</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
