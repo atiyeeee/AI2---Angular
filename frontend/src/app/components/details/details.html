@@ -1,0 +1,38 @@
+<mat-card *ngIf="person() as p; else notFound" class="page-card">
+  <mat-toolbar>
+    <span>Szczegóły osoby</span>
+  </mat-toolbar>
+
+  <mat-card-content class="card-toolbar">
+    <p><strong>Imię:</strong> {{ p.firstName }}</p>
+    <p><strong>Nazwisko:</strong> {{ p.familyName }}</p>
+    <p><strong>Wiek:</strong> {{ p.age }}</p>
+  </mat-card-content>
+    <mat-toolbar>
+      <span>Adres</span>
+    </mat-toolbar>
+  <mat-card-content class="card-toolbar">
+    <p><strong>Miasto:</strong> {{ p.address?.city }}</p>
+    <p><strong>Ulica:</strong> {{ p.address?.street }}</p>
+    <p><strong>Kod pocztowy:</strong> {{ p.address?.postCode }}</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="goBack()">
+      Powrót
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<ng-template #notFound>
+  <mat-card class="page-card">
+    <mat-card-content>
+      <p>Nie odnaleziono osoby o podanym identyfikatorze.</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" routerLink="/">
+        Powrót do listy
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>

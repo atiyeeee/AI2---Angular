@@ -1,0 +1,107 @@
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+  @include mat.theme((
+    color: (
+      primary: mat.$magenta-palette,
+      tertiary: mat.$violet-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+body {
+  color-scheme: dark light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  height: 100%;
+}
+
+header {
+  background-color: #591956; 
+  padding: 16px;
+  color: white;
+
+  h1 {
+    margin: 0.8rem;
+    font-size: 2.5rem;
+  }
+
+  nav {
+    margin-top: 1rem;
+    margin: 1rem;
+
+    a {
+      color: white;
+      text-decoration: none;
+      margin-right: 8px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.page-card {
+  padding: 0; 
+}
+
+.card-toolbar {
+  border-radius: 0; 
+  padding: 0 8px; 
+  font-size: 1rem;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+table.mat-elevation-z2 {
+  width: 100%;
+}
+
+.page-card {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  background-color: transparent !important; 
+
+}
+table.mat-mdc-table {
+  width: 100%;
+  background: transparent;
+}
+
+h3 {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font: var(--mat-sys-title-medium);
+}

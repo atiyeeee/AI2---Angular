@@ -1,0 +1,59 @@
+<mat-card class="page-card">
+  <mat-toolbar color="primary" class="card-toolbar">
+    <span>Lista osób</span>
+    <span class="spacer"></span>
+    <button mat-raised-button color="accent" routerLink="/add">
+      Dodaj osobę
+    </button>
+  </mat-toolbar>
+
+  <ng-container *ngIf="persons().length > 0; else emptyList">
+
+    <table mat-table [dataSource]="persons()" class="mat-elevation-z2">
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Osoba </th>
+        <td mat-cell *matCellDef="let p">
+          {{ p.firstName }} {{ p.familyName }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef> Wiek </th>
+        <td mat-cell *matCellDef="let p"> {{ p.age }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Adres </th>
+        <td mat-cell *matCellDef="let p">
+          {{ p.address?.city }},
+          {{ p.address?.street }}
+          ({{ p.address?.postCode }})
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Akcje </th>
+        <td mat-cell *matCellDef="let p">
+          <button mat-icon-button color="primary" (click)="goToDetails(p.id)">
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button mat-icon-button color="warn" (click)="delete(p.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['name','age','address','actions']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['name','age','address','actions'];"></tr>
+
+    </table>
+
+  </ng-container>
+
+  <ng-template #emptyList>
+    <p>Brak zapisanych osób.</p>
+  </ng-template>
+
+</mat-card>
